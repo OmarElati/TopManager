@@ -1,6 +1,6 @@
-import { apiSlice } from "../apiSlice"; // Adjust the import path as necessary
+import { apiSlice } from "../apiSlice";
 
-const BOARD_URL = "/board"; // Adjust the URL according to your backend
+const BOARD_URL = "/board";
 
 export const boardApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({

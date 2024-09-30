@@ -10,14 +10,13 @@ import ErrorComponent from '../components/ErrorComponent';
 import { arrayMove } from '@dnd-kit/sortable';
 
 
-const AgileBoard = () => {
+const Kanban = () => {
   const { data: columns = [], isLoading, error } = useGetColumnsQuery();
   const { data: tasks = [] } = useGetTasksQuery();
   const [addColumn] = useAddColumnMutation();
   const [moveTask] = useMoveTaskMutation();
   const [activeColumn, setActiveColumn] = useState(null);
   const [activeTask, setActiveTask] = useState(null);
-  
   const taskArray = Object.values(tasks).flat();
   const [taskList, setTasks] = useState(taskArray);
   const [columnOrder, setColumnOrder] = useState(columns.map(column => column._id));
@@ -28,7 +27,7 @@ const AgileBoard = () => {
 
   useEffect(() => {
     setTasks(taskArray);
-  }, [tasks]);
+  }, [taskArray]);
 
   const columnTasks = columns.map(column => ({
     ...column,
@@ -49,7 +48,7 @@ const AgileBoard = () => {
     ];
     
     const columnToAdd = {
-      id: generateId(),
+      _id: generateId(),
       title: columns.length < validTitles.length
         ? validTitles[columns.length]
         : `Column ${columns.length + 1}`,
@@ -219,5 +218,5 @@ const AgileBoard = () => {
   );
 };
 
-export default AgileBoard;
+export default Kanban;
 

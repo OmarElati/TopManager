@@ -1,4 +1,3 @@
-// controllers/boardController.js
 import Board from '../models/Board.js';
 import Column from '../models/Column.js';
 import Tasks from '../models/Tasks.js';

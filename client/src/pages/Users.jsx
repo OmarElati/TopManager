@@ -82,7 +82,7 @@ const Users = () => {
         <div className="w-10 h-10 border-2 border-gray-500 rounded-full flex justify-center items-center">
           {user.image ? (
             <img
-              src={user.image} // Ensure the image URL is accessible
+              src={user.image}
               alt={user.name}
               className='w-9 h-9 rounded-full object-cover'
             />

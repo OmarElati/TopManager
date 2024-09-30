@@ -21,8 +21,8 @@ const linkData = [
     icon: <MdDashboard />,
   },
     {
-    label: "agileboard",
-    link: "agileboard",
+    label: "Kanban",
+    link: "Kanban",
     icon: <FaFlipboard />,
   },
   {

@@ -52,7 +52,7 @@ const TaskCard = ({ task }) => {
               <div
                 className={clsx(
                   "w-2 h-2 rounded-full",
-                  TASK_TYPE[task?.stage] || "bg-gray-400" // Default color if stage is not defined
+                  TASK_TYPE[task?.stage] || "bg-gray-400"
                 )}
               />
               <h4 className="text-lg font-semibold text-gray-900 truncate">

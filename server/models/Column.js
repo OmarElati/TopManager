@@ -1,4 +1,3 @@
-// models/Column.js
 import mongoose from 'mongoose';
 
 const ColumnSchema = new mongoose.Schema({

@@ -11,7 +11,7 @@ import {
   MdTaskAlt,
 } from "react-icons/md";
 import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
-import { FaTasks, FaTrashAlt, FaUsers } from "react-icons/fa";
+import { FaFlipboard, FaTasks, FaTrashAlt, FaUsers } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 
 const linkData = [
@@ -19,6 +19,11 @@ const linkData = [
     label: "Dashboard",
     link: "dashboard",
     icon: <MdDashboard />,
+  },
+  {
+    label: "Kanban",
+    link: "Kanban",
+    icon: <FaFlipboard />,
   },
   {
     label: "Tasks",
@@ -111,7 +116,7 @@ const MobileSidebar = () => {
           <div
             ref={(node) => (mobileMenuRef.current = node)}
             className={clsx(
-              "md:hidden w-full h-full bg-black transition-all duration-700 transform",
+              "md: w-full h-full bg-opacity-30 transition-all duration-700 transform",
               isSidebarOpen ? "translate-x-0" : "translate-x-full"
             )}
             onClick={closeSidebar}
@@ -130,7 +135,7 @@ const MobileSidebar = () => {
                       <MdOutlineAddTask className="text-white text-2xl" />
                     </div>
                     {isExpanded && (
-                      <span className="text-2xl font-bold text-gray-800">
+                      <span className="text-2xl font-bold text-blue-500">
                         Topmanager
                       </span>
                     )}

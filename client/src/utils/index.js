@@ -24,17 +24,8 @@ export function dateFormatter(dateString) {
   return formattedDate;
 }
 
-// export function getInitials(fullName) {
-//   const names = fullName.split(" ");
-
-//   const initials = names.slice(0, 2).map((name) => name[0].toUpperCase());
-
-//   const initialsStr = initials.join("");
-
-//   return initialsStr;
-// }
 export function getInitials(fullName) {
-  if (!fullName) return ""; // Return an empty string if fullName is undefined, null, or empty
+  if (!fullName) return ""; 
 
   const names = fullName.split(" ");
   const initials = names.slice(0, 2).map((name) => name[0].toUpperCase());

@@ -16,7 +16,7 @@ import Dashboard from "./pages/dashboard";
 // import { setOpenSidebar } from "./redux/slices/authSlice";
 import Register from "./pages/Register";
 import MobileSidebar from "./components/MobileSidebar";
-import AgileBoard from "./pages/AgileBoard";
+import Kanban from "./pages/Kanban";
 
 function Layout() {
   const { user } = useSelector((state) => state.auth);
@@ -53,7 +53,7 @@ function App() {
           <Route index path='/' element={<Navigate to='/dashboard' />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/tasks' element={<Tasks />} />
-          <Route path='/agileboard' element={<AgileBoard />} />
+          <Route path='/Kanban' element={<Kanban />} />
           <Route path='/completed/:status' element={<Tasks />} />
           <Route path='/in-progress/:status' element={<Tasks />} />
           <Route path='/todo/:status' element={<Tasks />} />

@@ -6,7 +6,7 @@ import boardRoutes from "./boardRoutes.js";
 
 const router = express.Router();
 
-router.use("/user", userRoutes); //api/user/login
+router.use("/user", userRoutes);
 router.use("/task", taskRoutes);
 // router.use("/projects", projectRoutes);
 router.use("/board", boardRoutes);

@@ -2,8 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useRegisterMutation } from "../redux/slices/api/authApiSlice";
 import { toast } from "sonner";
-import Textbox from "../components/Textbox"; // Adjust based on your structure
-import Button from "../components/Button"; // Adjust based on your structure
+import Textbox from "../components/Textbox";
+import Button from "../components/Button";
 
 const Register = () => {
   const {
@@ -26,9 +26,9 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 to-blue-400 p-6">
-      <div className="max-w-lg w-full bg-white/30 backdrop-blur-lg shadow-xl rounded-lg p-8 border border-white/20">
-        <h2 className="text-4xl font-extrabold text-center text-white mb-8">Sign Up</h2>
+    <div className="min-h-screen flex items-center justify-end mr-2">
+      <div className="max-w-lg w-full bg-white/30 backdrop-blur-lg shadow-xl rounded-lg p-8 border border-white/20 mb-4 mt-4">
+        <h2 className="text-4xl font-extrabold text-center text-black mb-8">Sign Up</h2>
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           {/* Name Field */}
@@ -104,14 +104,14 @@ const Register = () => {
               {...register("isAdmin")}
               className="h-5 w-5 text-blue-600 rounded focus:ring-2 focus:ring-indigo-500"
             />
-            <label className="text-white text-sm font-medium">Register as Admin</label>
+            <label className="text-blue-950 text-sm font-medium">Register as Admin</label>
           </div>
 
           {/* Submit Button */}
           <Button
             label={isSubmitting ? "Registering..." : "Register"}
             type="submit"
-            className={`w-full py-3 text-lg font-bold tracking-wide text-indigo-700 bg-white/80 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover:bg-white ${
+            className={`w-full py-3 text-lg font-bold tracking-wide text-blue-500 bg-white/80 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover:bg-blue-500 hover:text-blue-100 ${
               isSubmitting ? "cursor-not-allowed opacity-60" : ""
             }`}
             disabled={isSubmitting}
