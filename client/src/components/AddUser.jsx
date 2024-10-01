@@ -30,41 +30,12 @@ const AddUser = ({ open, setOpen, userData }) => {
   const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation();
   const storage = getStorage(app);
 
-  // Handle image upload and preview
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setSelectedImage(URL.createObjectURL(file)); // Create a URL to preview the selected image
+      setSelectedImage(URL.createObjectURL(file));
     }
   };
-
-  // const handleOnSubmit = async (data) => {
-  //   try {
-  //     if (userData) {
-  //       const result = await updateUser({ ...data, _id: userData._id }).unwrap();
-
-  //       toast.success("Profile updated successfully");
-
-  //       if (userData?._id === user._id) {
-  //         dispatch(setCredentials({ ...result.user }));
-  //       }
-  //     } else {
-  //       await addNewUser({
-  //         ...data,
-  //         password: data.email,
-  //       }).unwrap();
-
-  //       toast.success("User added successfully");
-  //     }
-
-  //     setTimeout(() => {
-  //       setOpen(false);
-  //     }, 1500);
-  //   } catch (error) {
-  //     console.error("Error updating user:", error);
-  //     toast.error("Something went wrong");
-  //   }
-  // };
 
   const handleOnSubmit = async (data) => {
     try {
@@ -72,10 +43,8 @@ const AddUser = ({ open, setOpen, userData }) => {
         const imageFile = document.querySelector('input[type="file"]').files[0];
         const storageRef = ref(storage, `profilePictures/${imageFile.name}`);
   
-        // Upload the image to Firebase Storage
         await uploadBytes(storageRef, imageFile);
         
-        // Get the download URL after the image is uploaded
         const imageUrl = await getDownloadURL(storageRef);
         console.log("Image URL:", imageUrl);
         

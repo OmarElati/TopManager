@@ -18,17 +18,17 @@ const UserList = ({ setTeam, team }) => {
   };
 
   useEffect(() => {
-    if (team?.length < 1 && data) {
-      setSelectedUsers([data[0]]);
-      setTeam([data[0]._id]);
-    } else if (team?.length > 0) {
+    if (team?.length < 1) {
+      data && setSelectedUsers([data[0]]);
+    } else {
       setSelectedUsers(team);
     }
-  }, [isLoading, data, setTeam, team]);
+  }, []);
 
   if (isLoading) {
     return <p>Loading users...</p>;
   }
+  console.log(data);
 
   return (
     <div>

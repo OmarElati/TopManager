@@ -7,7 +7,6 @@ const UserInfo = ({ user }) => {
   return (
     <div className='px-0'>
       <Popover className='relative'>
-        {/* {({ open }) => ( */}
         <>
           <Popover.Button className='group flex justify-center items-center outline-none'>
             <span>
@@ -64,7 +63,6 @@ const UserInfo = ({ user }) => {
             </Popover.Panel>
           </Transition>
         </>
-        {/* )} */}
       </Popover>
     </div>
   );

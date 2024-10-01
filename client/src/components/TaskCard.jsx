@@ -150,7 +150,12 @@ TaskCard.propTypes = {
     activities: PropTypes.array,
     assets: PropTypes.array,
     subTasks: PropTypes.array,
-    team: PropTypes.array,
+    team: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        image: PropTypes.string,
+      })
+    ),
     stage: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
