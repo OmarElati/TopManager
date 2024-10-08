@@ -105,6 +105,17 @@ const Login = () => {
               />}
             </div>
           </form>
+
+          {/* Button to switch to Register page */}
+          <div className="mt-4 text-center">
+            <span className="text-gray-700">Don't have an account? </span>
+            <Button
+              label="Create Account"
+              type="button"
+              onClick={() => navigate("/register")}
+              className="mt-2 text-blue-500 hover:text-blue-700 py-2 px-4"
+            />
+          </div>
         </div>
       </div>
     </div>

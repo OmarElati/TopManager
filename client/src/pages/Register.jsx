@@ -4,6 +4,8 @@ import { useRegisterMutation } from "../redux/slices/api/authApiSlice";
 import { toast } from "sonner";
 import Textbox from "../components/Textbox";
 import Button from "../components/Button";
+import bgPic from "../assets/pexels-nickcollins-1292998.png";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const {
@@ -13,6 +15,7 @@ const Register = () => {
   } = useForm();
 
   const [registerUser] = useRegisterMutation();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
@@ -26,8 +29,10 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-end mr-2">
-      <div className="max-w-lg w-full bg-white/30 backdrop-blur-lg shadow-xl rounded-lg p-8 border border-white/20 mb-4 mt-4">
+    <div className="relative min-h-screen flex items-center justify-center">
+      <img src={bgPic} alt="Background" className="absolute inset-0 h-full w-full object-cover" />
+
+      <div className="max-w-lg w-full bg-white/30 backdrop-blur-lg shadow-xl rounded-lg p-8 border border-white/20 mb-4 mt-4 z-10">
         <h2 className="text-4xl font-extrabold text-center text-black mb-8">Sign Up</h2>
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
@@ -108,15 +113,28 @@ const Register = () => {
           </div>
 
           {/* Submit Button */}
-          <Button
-            label={isSubmitting ? "Registering..." : "Register"}
-            type="submit"
-            className={`w-full py-3 text-lg font-bold tracking-wide text-blue-500 bg-white/80 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover:bg-blue-500 hover:text-blue-100 ${
-              isSubmitting ? "cursor-not-allowed opacity-60" : ""
-            }`}
-            disabled={isSubmitting}
-          />
+          <div className="flex justify-center">
+            <Button
+              label={isSubmitting ? "Registering..." : "Register"}
+              type="submit"
+              className={`w-64 py-3 text-lg font-bold tracking-wide text-blue-500 bg-white/80 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover:bg-blue-500 hover:text-blue-100 ${
+                isSubmitting ? "cursor-not-allowed opacity-60" : ""
+              }`}
+              disabled={isSubmitting}
+            />
+          </div>
         </form>
+
+        {/* Button to switch to Login page */}
+        <div className="mt-4 text-center">
+          <span className="text-gray-700">Already have an account? </span>
+          <Button
+            label="Login"
+            type="button"
+            onClick={() => navigate("/log-in")}
+            className="mt-2 text-blue-500 hover:text-blue-700 py-2 px-4"
+          />
+        </div>
       </div>
     </div>
   );
